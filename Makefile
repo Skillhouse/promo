@@ -2794,3 +2794,8 @@ define output-dependency-graph
 	fi
 endef
 # vim: noet sts=0 sw=8 ts=8
+
+
+4up-newmember.pdf: newmember.pdf
+	pdfjam --landscape --outfile $@ --nup 2x2  $< $< $< $< 
+
