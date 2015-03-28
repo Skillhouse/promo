@@ -1578,7 +1578,8 @@ echo-list	= for x in $1; do $(ECHO) "$$x"; done
 #
 
 .PHONY: all
-all: $(default_pdf_targets) ;
+all:: $(default_pdf_targets) ;
+all:: trifold-prod.pdf
 
 .PHONY: all-pdf
 all-pdf: $(default_pdf_targets) ;
@@ -2799,6 +2800,9 @@ endef
 4up-newmember.pdf: newmember.pdf
 	pdfjam --landscape --outfile $@ --nup 2x2  $< $< $< $< 
 
+
+trifold-prod.pdf: trifold-leaflet.pdf
+	cp $< $@
 
 trifold-leaflet.pdf: trifold-leaflet.tex
 	pdflatex $<
