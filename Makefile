@@ -2799,3 +2799,6 @@ endef
 4up-newmember.pdf: newmember.pdf
 	pdfjam --landscape --outfile $@ --nup 2x2  $< $< $< $< 
 
+
+trifold-leaflet.pdf: trifold-leaflet.tex
+	pdflatex $<
